@@ -1,0 +1,42 @@
+<div class="container">
+    <h1>Student Information Form</h1>
+    <form #studentForm="ngForm" (ngSubmit)="onSubmit(studentForm)">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" class="form-control" [(ngModel)]="student.name" required
+                minlength="3">
+            <div *ngIf="studentForm.submitted && studentForm.controls['name'].errors?.['required']" class="text-danger">
+                Name is required.
+            </div>
+            <div *ngIf="studentForm.submitted && studentForm.controls['name'].errors?.['minlength']"
+                class="text-danger">
+                Name must be at least 3 characters long.
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="age">Age</label>
+            <input type="number" id="age" name="age" class="form-control" [(ngModel)]="student.age" required min="0">
+            <div *ngIf="studentForm.submitted && studentForm.controls['age'].errors?.['required']" class="text-danger">
+                Age is required.
+            </div>
+            <div *ngIf="studentForm.submitted && studentForm.controls['age'].errors?.['min']" class="text-danger">
+                Age must be a positive number.
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="course">Course</label>
+            <input type="text" id="course" name="course" class="form-control" [(ngModel)]="student.course" required>
+            <div *ngIf="studentForm.submitted && studentForm.controls['course'].errors?.['required']"
+                class="text-danger">
+                Course is required.
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+
+

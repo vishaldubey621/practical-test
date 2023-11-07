@@ -1,0 +1,16 @@
+{
+  "students": [
+    {
+      "name": "praveen",
+      "age": 34232,
+      "course": "chemmicals",
+      "id": 3
+    },
+    {
+      "name": "virat",
+      "age": 34,
+      "course": "tesd",
+      "id": 4
+    }
+  ]
+}

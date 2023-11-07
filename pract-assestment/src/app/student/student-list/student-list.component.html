@@ -1,0 +1,34 @@
+<div class="container">
+    <h1>Student List</h1>
+    <button class="btn btn-primary mb-3" id="addStudentBtn" routerLink="/add-student">Add Student</button>
+    <table class="table table-bordered table-responsive">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Course</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let student of students; let i = index">
+                <td>{{i+1}}</td>
+                <td>{{student.name}}</td>
+                <td>{{student.age}}</td>
+                <td>{{student.course}}</td>
+                <td>
+                    <button *ngIf="student.id !== undefined" class="btn btn-success btn-sm view-button"
+                        (click)="viewStudentdetail(student.id)">View</button>
+                    <button *ngIf="student.id !== undefined" class="btn btn-primary btn-sm update-button"
+                        (click)="updateStudent(student.id)">Update </button>
+                    <button *ngIf="student.id !== undefined" class="btn btn-danger btn-sm delete-button"
+                        (click)="deleteStudent(student.id)">Delete</button>
+                </td>
+            </tr>
+            <tr *ngIf="students.length === 0">
+                <td colspan="4" style="text-align: center; color: red;">No record found.</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
